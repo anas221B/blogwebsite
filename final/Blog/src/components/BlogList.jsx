@@ -1,21 +1,25 @@
-import React from "react";
-import BlogItem from "./BlogItems"; 
-import { useContext } from "react";
+import React, { useContext } from "react";
+import BlogItem from "./BlogItems";
 import BlogContext from "../store/Context";
+import "./BlogList.css";
 
 const BlogList = () => {
- const { blogs } = useContext(BlogContext);
+  const { blogs } = useContext(BlogContext);
 
   return (
-    <div>
-      {blogs.map((blog) => (
-        <BlogItem
-          key={blog.id}
-          title={blog.title}
-          image={blog.image}
-          description={blog.description}
-        />
-      ))}
+    <div className="bloglist-container">
+      {blogs.length === 0 ? (
+        <p className="empty-text">No blogs yet. Add one 🚀</p>
+      ) : (
+        blogs.map((blog) => (
+          <BlogItem
+            key={blog.id}
+            title={blog.title}
+            image={blog.image}
+            description={blog.description}
+          />
+        ))
+      )}
     </div>
   );
 };

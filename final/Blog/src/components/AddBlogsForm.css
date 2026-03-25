@@ -1,0 +1,64 @@
+.blog-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.blog-form h2 {
+  text-align: center;
+  color: #333;
+}
+
+/* group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* labels */
+.form-group label {
+  font-weight: 500;
+  color: #555;
+}
+
+/* inputs + textarea */
+.form-group input,
+.form-group textarea {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+/* textarea size */
+.form-group textarea {
+  min-height: 100px;
+  resize: none;
+}
+
+/* focus effect */
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+/* submit button */
+.submit-btn {
+  padding: 12px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #059669;
+  transform: translateY(-1px);
+}

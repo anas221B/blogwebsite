@@ -6,14 +6,15 @@ import Provider from './store/provider'
 
 const App = () => {
   return (
-    <div>
+    <div className="app">
       <Provider>
-        <Header/>
-        <AddBlogs/>
-        <BlogList/>
-     </Provider>
+        <Header />
+        <main className="main-content">
+          <AddBlogs />
+          <BlogList />
+        </main>
+      </Provider>
     </div>
   )
 }
-
 export default App

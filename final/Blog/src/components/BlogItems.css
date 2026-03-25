@@ -1,0 +1,90 @@
+/* BlogItems.css */
+
+.blog-card {
+  width: 320px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
+}
+
+/* Image */
+.blog-image {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.blog-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.4s;
+}
+
+.blog-card:hover .blog-image img {
+  transform: scale(1.05);
+}
+
+/* Content */
+.blog-content {
+  padding: 16px;
+}
+
+.blog-content h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.blog-content p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Button container */
+.blog-content div {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+/* Buttons */
+.blog-content button {
+  flex: 1;
+  padding: 8px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* Edit button */
+.blog-content button:first-child {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.blog-content button:first-child:hover {
+  background-color: #43a047;
+}
+
+/* Delete button */
+.blog-content button:last-child {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.blog-content button:last-child:hover {
+  background-color: #d32f2f;
+}

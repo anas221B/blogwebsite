@@ -1,14 +1,34 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import AddBlogsForm from './AddBlogsForm'
+import './AddBlogs.css'
 
 const AddBlogs = () => {
   const [showAddBlogs, setShowAddBlogs] = useState(true)
 
   return (
-    <div>
-      {showAddBlogs && <button onClick={()=>setShowAddBlogs(false)}>Add Blogs</button>}
-      {!showAddBlogs && <div><AddBlogsForm/><button onClick={()=>setShowAddBlogs(true)}>cancel</button></div>}
+    <div className="addblogs-container">
+      
+      {showAddBlogs && (
+        <button 
+          className="addblogs-btn"
+          onClick={() => setShowAddBlogs(false)}
+        >
+          + Add Blog
+        </button>
+      )}
+
+      {!showAddBlogs && (
+        <div className="addblogs-card">
+          <AddBlogsForm />
+
+          <button 
+            className="cancel-btn"
+            onClick={() => setShowAddBlogs(true)}
+          >
+            Cancel
+          </button>
+        </div>
+      )}
 
     </div>
   )

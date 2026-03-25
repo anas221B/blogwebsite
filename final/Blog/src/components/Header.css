@@ -1,0 +1,17 @@
+.header {
+  width: 100%;
+  padding: 18px 0;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* logo text */
+.logo {
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
