@@ -21,7 +21,6 @@ const AddBlogsForm = () => {
 
     setBlogs((prevBlogs) => [blog, ...prevBlogs]);
 
-    // clear inputs (important UX)
     titleRef.current.value = "";
     urlRef.current.value = "";
     desRef.current.value = "";
@@ -47,7 +46,7 @@ const AddBlogsForm = () => {
       </div>
 
       <button type="submit" className="submit-btn">
-        Submit
+        Save
       </button>
     </form>
   );

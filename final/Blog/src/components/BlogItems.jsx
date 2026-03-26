@@ -1,8 +1,15 @@
 import React from "react";
 import "./BlogItems.css";
+import { useContext } from "react";
+import BlogContext from "../store/Context";
 
-const BlogItem = ({ title, image, description }) => {
-
+const BlogItem = ({ title, image, description, id }) => {
+  const { blogs ,setBlogs} = useContext(BlogContext);
+ const handleDelete = (id) => {
+    const updatedBlogs = blogs.filter((blog) => blog.id !== id);
+    console.log(updatedBlogs);
+    setBlogs(updatedBlogs);
+  };
   return (
     <div className="blog-card">
       
@@ -15,7 +22,7 @@ const BlogItem = ({ title, image, description }) => {
         <p>{description}</p>
         <div>
         <button> Edit</button>
-        <button>Delete</button>
+        <button onClick={() => handleDelete(id)}>Delete</button>
         </div>
       </div>
 
