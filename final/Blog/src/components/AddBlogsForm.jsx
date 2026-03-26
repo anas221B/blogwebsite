@@ -3,7 +3,8 @@ import BlogContext from "../store/Context";
 import "./AddBlogsForm.css";
 
 const AddBlogsForm = () => {
-  const { setBlogs } = useContext(BlogContext);
+  const { setBlogs, blogToEdit, editBlog, setBlogToEdit } =
+    useContext(BlogContext);
 
   const titleRef = useRef(null);
   const urlRef = useRef(null);
@@ -16,11 +17,22 @@ const AddBlogsForm = () => {
       title: titleRef.current.value,
       image: urlRef.current.value,
       description: desRef.current.value,
-      id: Date.now().toString(),
     };
 
-    setBlogs((prevBlogs) => [blog, ...prevBlogs]);
+    if (blogToEdit) {
+      // ✏️ EDIT MODE
+      editBlog(blogToEdit.id, blog);
+      setBlogToEdit(null);
+    } else {
+      // ➕ ADD MODE
+      const newBlog = {
+        ...blog,
+        id: Date.now().toString(),
+      };
+      setBlogs((prev) => [newBlog, ...prev]);
+    }
 
+    // clear
     titleRef.current.value = "";
     urlRef.current.value = "";
     desRef.current.value = "";
@@ -28,25 +40,39 @@ const AddBlogsForm = () => {
 
   return (
     <form className="blog-form" onSubmit={handelclick}>
-      <h2>Add New Blog</h2>
+      <h2>{blogToEdit ? "Edit Blog" : "Add New Blog"}</h2>
 
       <div className="form-group">
         <label>Title</label>
-        <input type="text" ref={titleRef} placeholder="Enter blog title" />
+        <input
+          type="text"
+          ref={titleRef}
+          defaultValue={blogToEdit?.title || ""}
+          placeholder="Enter blog title"
+        />
       </div>
 
       <div className="form-group">
         <label>Image URL</label>
-        <input type="url" ref={urlRef} placeholder="Paste image link" />
+        <input
+          type="url"
+          ref={urlRef}
+          defaultValue={blogToEdit?.image || ""}
+          placeholder="Paste image link"
+        />
       </div>
 
       <div className="form-group">
         <label>Description</label>
-        <textarea ref={desRef} placeholder="Write something..." />
+        <textarea
+          ref={desRef}
+          defaultValue={blogToEdit?.description || ""}
+          placeholder="Write something..."
+        />
       </div>
 
       <button type="submit" className="submit-btn">
-        Save
+        {blogToEdit ? "Update" : "Submit"}
       </button>
     </form>
   );

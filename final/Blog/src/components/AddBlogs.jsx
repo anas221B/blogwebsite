@@ -1,9 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState} from 'react'
 import AddBlogsForm from './AddBlogsForm'
 import './AddBlogs.css'
+import BlogContext from '../store/Context'
 
 const AddBlogs = () => {
-  const [showAddBlogs, setShowAddBlogs] = useState(true)
+   const {showAddBlogs,setShowAddBlogs,setBlogToEdit}=useContext(BlogContext)
+   const cancelhandler=()=>{
+    setShowAddBlogs(true)
+    setBlogToEdit(null)
+   }
 
   return (
     <div className="addblogs-container">
@@ -23,7 +28,7 @@ const AddBlogs = () => {
 
           <button 
             className="cancel-btn"
-            onClick={() => setShowAddBlogs(true)}
+            onClick={cancelhandler}
           >
             Cancel
           </button>
